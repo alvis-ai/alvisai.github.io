@@ -1,0 +1,59 @@
+# 站点元信息
+base_url = "https://yourname.github.io/yourrepo"   # ← 修改为你的线上地址
+title = "Alvis Ai的博客"
+description = "记录 Rust / Go / Android / Flutter笔记"
+
+# 构建
+compile_sass = true
+minify_html = true
+build_search_index = false  # 生成本地搜索索引（部分主题内置搜索页面）
+default_language = "zh"
+
+# 作者信息（可被主题读取）
+author = "Alvis Ai"
+
+# 主题
+# 若主题目录名不同请调整
+# terminimal 的文档见其仓库 README
+# 一些主题支持通过 `extra` 段落自定义开关
+
+# 选择主题
+# 主题名即 themes/ 下目录名
+# 例如 terminimal
+
+# 注意：Zola 0.18+ 已支持 `theme` 字段
+# 如果你是老版本，请升级 Zola
+
+# 切换到新的自定义主题
+theme = "plain"
+
+# Markdown 渲染选项
+[markdown]
+smart_punctuation = true
+
+[markdown.highlighting]
+theme = "catppuccin-mocha"
+
+# 分类/标签（taxonomies）
+# 便于按标签汇总文章
+[[taxonomies]]
+name = "tags"
+feed = true
+paginate_by = 10
+
+# 输出目录（默认 public/）
+# output_dir = "public"
+
+# 自定义数据（被主题或模板使用）
+[extra]
+# 顶部导航（Terminimal 主题读取 menu_items）
+logo_text = "Alvis Ai的博客"
+menu_items = [
+  { name = "首页", url = "/" },
+  { name = "文章", url = "/post/" },
+  { name = "标签", url = "/tags/" },
+  { name = "关于", url = "/about/" }
+]
+
+# 如果主题支持深色模式开关，可在 extra 中指定（示例）
+# dark_mode = true

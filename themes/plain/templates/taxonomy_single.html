@@ -1,0 +1,16 @@
+{% import "macros/date.html" as date_macros %}
+{% extends "base.html" %}
+
+{% block title %}{{ term.name }} · 标签 · {{ config.title }}{% endblock %}
+
+{% block content %}
+  <h1>#{{ term.name }}</h1>
+  {% for page in term.pages %}
+    <article class="card">
+      <div class="meta">{{ date_macros::format(date=page.date, format="%Y-%m-%d") }}</div>
+      <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
+      <div class="summary">{{ page.summary | safe }}</div>
+      <a class="more" href="{{ page.permalink | safe }}">阅读全文 →</a>
+    </article>
+  {% endfor %}
+{% endblock content %}

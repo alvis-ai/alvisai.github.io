@@ -1,0 +1,95 @@
+/* 让正文更易读，可按需调整 */
+.prose img { max-width: 100%; height: auto; }
+.katex-block { margin: 1rem 0; }
+
+.home-layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 280px) 1fr;
+  gap: 2rem;
+}
+
+.home-sidebar {
+  position: sticky;
+  top: 1rem;
+  height: fit-content;
+}
+
+.home-intro {
+  padding: 1rem 1.2rem;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  margin-bottom: 1.2rem;
+  line-height: 1.6;
+}
+
+.home-metrics {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+  display: flex;
+  gap: 1rem;
+}
+
+.home-metrics li {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.home-metrics span {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #9aa7c5;
+}
+
+.home-metrics strong {
+  font-size: 1.4rem;
+}
+
+.home-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.home-tags a {
+  font-size: 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  text-decoration: none;
+}
+
+.home-feed .card {
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.home-more {
+  margin-top: 1rem;
+  text-align: right;
+}
+
+@media (max-width: 860px) {
+  .home-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .home-sidebar {
+    position: static;
+  }
+
+  .home-metrics {
+    gap: 0.6rem;
+  }
+}

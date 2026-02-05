@@ -1,0 +1,41 @@
+{% import "macros/date.html" as date_macros -%}
+{% set lang = lang | default(value=config.default_language | default(value="en")) %}
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ config.title }}{% endblock %}</title>
+  <meta name="description" content="{{ config.description }}">
+  <link rel="stylesheet" href="{{ get_url(path='css/theme.css', trailing_slash=false) | safe }}">
+  {% if config.markdown and config.markdown.highlight_theme %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/{{ config.markdown.highlight_theme }}.min.css">
+  {% endif %}
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <div class="brand">
+        <a href="{{ config.base_url | safe }}">{{ config.title }}</a>
+        {% if config.description %}<span class="muted">— {{ config.description }}</span>{% endif %}
+      </div>
+      {% if config.extra.menu_items %}
+      <nav class="nav">
+        {% for item in config.extra.menu_items %}
+          <a href="{{ get_url(path=item.url, trailing_slash=true) | safe }}">{{ item.name }}</a>
+        {% endfor %}
+      </nav>
+      {% endif %}
+    </div>
+  </header>
+
+  <main class="wrap">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer wrap">
+    <span>© {{ date_macros::now_year() }} {{ config.extra.author | default(value=config.author | default(value='')) }}</span>
+  </footer>
+</body>
+</html>

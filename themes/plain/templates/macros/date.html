@@ -1,0 +1,2 @@
+{% macro now_year() %}{{ now() | date(format="%Y") }}{% endmacro now_year %}
+{% macro format(date, format="%Y-%m-%d") %}{{ date | date(format=format) }}{% endmacro format %}

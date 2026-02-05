@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}标签 · {{ config.title }}{% endblock %}
+
+{% block content %}
+  <h1>标签</h1>
+  <div class="home-tags">
+    {% for term in terms %}
+      <a href="{{ term.permalink | safe }}">#{{ term.name }} ({{ term.pages | length }})</a>
+    {% endfor %}
+  </div>
+{% endblock content %}

@@ -1,0 +1,25 @@
+{% import "macros/date.html" as date_macros %}
+{% extends "base.html" %}
+
+{% block title %}{{ config.title }}{% endblock %}
+
+{% block content %}
+  {% if section and section.content %}
+    <section class="intro card">
+      {{ section.content | safe }}
+    </section>
+  {% endif %}
+
+  <section class="grid">
+    {% for page in section.pages | slice(end=6) %}
+      <article class="card">
+        <div class="meta">{{ date_macros::format(date=page.date, format="%Y-%m-%d") }} · {{ page.taxonomies.tags | default(value=[]) | length }} tags</div>
+        <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
+        <div class="summary">{{ page.summary | safe }}</div>
+        <a class="more" href="{{ page.permalink | safe }}">阅读全文 →</a>
+      </article>
+    {% endfor %}
+  </section>
+
+  <p class="more-link"><a href="{{ get_url(path='post', trailing_slash=true) }}">查看全部文章</a></p>
+{% endblock content %}
