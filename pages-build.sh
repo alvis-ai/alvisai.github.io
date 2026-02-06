@@ -8,4 +8,8 @@ if [ ! -x "$BIN" ]; then
   curl -Ls "https://github.com/getzola/zola/releases/download/v${ZOLA_VERSION}/zola-v${ZOLA_VERSION}-x86_64-unknown-linux-gnu.tar.gz" \
     | tar -xz -C "$CACHE_DIR"
 fi
-"$BIN" build
+if [ -n "${BASE_URL:-}" ]; then
+  "$BIN" build --base-url "$BASE_URL"
+else
+  "$BIN" build
+fi

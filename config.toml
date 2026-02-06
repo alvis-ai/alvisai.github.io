@@ -1,5 +1,5 @@
 # 站点元信息
-base_url = "https://yourname.github.io/yourrepo"   # ← 修改为你的线上地址
+base_url = "https://alvis-blog.pages.dev"   # ← 修改为你的线上地址
 title = "Alvis Ai的博客"
 description = "记录 Rust / Go / Android / Flutter笔记"
 
